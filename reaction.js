@@ -24,6 +24,7 @@
  *   Element.attributes.removeNamedItem(AttrNodeName) (?) element.attributes.removeNamedItem("type")
  *
  * The properties of element that should be handled
+ *   Element.attributes
  *   Element.attributes[n].name
  *   Element.attributes[n].value
  *   (?) Element.attributes[n].nodeName
