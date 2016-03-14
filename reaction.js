@@ -161,4 +161,23 @@
     return a;
   }
 
+  /****************************************************************************/
+
+  function __construct () {
+    
+  }
+
+  function PrototypeReactor (constructor) {
+    // Prepare element prototype
+    var that = this;
+    that.constructor = constructor;
+  }
+
+  function NodeReactor (node) {
+    // Prepare just created node
+    var that = this;
+    that.node = node;
+  }
+
+  __construct();
 }(window, document, Object));
