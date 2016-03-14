@@ -167,6 +167,20 @@
     
   }
 
+  function Origin (name, fn) {
+    this.name = name;
+    this.fn = fn;
+  }
+
+  function ReactionRecord ($this, $originName, $originFunction, $name, $value, $prev) {
+    this.$this = $this;
+    this.$name = $name;
+    this.$prev = $prev;
+    this.$value = $value;
+    this.$origin = new Origin($originName, $originFunction);
+  }
+  // (this, new OriginExecutor("set", set), property, value, prev)
+
   function PrototypeReactor (constructor) {
     // Prepare element prototype
     var that = this;
@@ -177,6 +191,16 @@
     // Prepare just created node
     var that = this;
     that.node = node;
+  }
+
+  function handleMutationEvents (node, handler) {
+    // DOMAttrModified not handling under Chrome
+    var events = {"DOMNodeInserted":"insert", "DOMNodeRemoved":"remove", "DOMAttrModified":"setAttribute"};
+    for (var i in events) node.addEventListener(i, function(e){
+      var args = [new OriginExecutor(events[e.type])];
+      if (e.attrName) args.push(e.attrName, e.newValue, e.prevValue);
+      handler.apply(e.target, args);
+    }, false);
   }
 
   __construct();
