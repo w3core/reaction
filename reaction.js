@@ -1,3 +1,59 @@
+/**
+ * ReactionJS
+ * 
+ * Reaction for the any changes of the document.
+ * 
+ * What should be done:
+ * 1. Handle DOM changes via Mutation events (except for attributes because
+ *    Webkit browsers does not support it)
+ * 2. Proxy all methods, that responsible for the changes of attributes.
+ * 3. Define setter for all properties of prototypes of elements of form that
+ *    responsible for data changes, to handle direct changes of them
+ *    (unfortunately it's not available on Safari browser).
+ * 4. Create event handlers when element just inserted to the document
+ * 5. The logic to avoid collisions.
+ * 
+ * Element creation ways
+ *   MutationEvent "DOMNodeInserted"
+ *   document.createElement(name)
+ * 
+ * Attribute modification methods:
+ *   Element.setAttribute(name, value)
+ *   Element.attributes.setNamedItem(AttrNode) (?) document.createAttribute("class")
+ *   Element.removeAttribute(name)
+ *   Element.attributes.removeNamedItem(AttrNodeName) (?) element.attributes.removeNamedItem("type")
+ *
+ * The properties of element that should be handled
+ *   Element.attributes[n].name
+ *   Element.attributes[n].value
+ *   (?) Element.attributes[n].nodeName
+ *   (?) Element.attributes[n].localName
+ *   (?) Element.attributes[n].nodeValue
+ *   (?) Element.attributes[n].textContent
+ *   Elements of form:
+ *     Element.name
+ *     Element.value
+ *     Element.checked
+ *     Element.disabled
+ *     Element.files
+ *     Element.multiple
+ *     Element.selected (?) option
+ *     Element.innerHTML | innerText | textContent | text (?) option | textarea
+ *   Basic element properties:
+ *     Element.src
+ *     Element.href
+ *     Element.title
+ *     Element.innerHTML
+ *     Element.innerText
+ *     Element.textContent
+ *     Element.style.*
+ * 
+ * Event that should be handled for the elements of form
+ *   change
+ *   input
+ *   keypress
+ * 
+ */
 (new function(window, document, Object){
 
   var TRUE = !0, FALSE = !1, NULL = null, UNDEFINED = undefined, NAN = NaN, INFINITY = Infinity, PINFINITY = +Infinity, NINFINITY = -Infinity;
