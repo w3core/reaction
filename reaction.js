@@ -25,12 +25,12 @@
  *
  * The properties of element that should be handled
  *   Element.attributes
- *   Element.attributes[n].name
+ *   (ro) Element.attributes[n].name
+ *   (ro) Element.attributes[n].nodeName
+ *   (ro) Element.attributes[n].localName
  *   Element.attributes[n].value
- *   (?) Element.attributes[n].nodeName
- *   (?) Element.attributes[n].localName
- *   (?) Element.attributes[n].nodeValue
- *   (?) Element.attributes[n].textContent
+ *   Element.attributes[n].nodeValue
+ *   Element.attributes[n].textContent
  *   Elements of form:
  *     Element.name
  *     Element.value

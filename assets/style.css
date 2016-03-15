@@ -7,6 +7,7 @@ input, select, textarea {cursor:pointer;}
 input[type=checkbox], input[type=radio] {margin:0; padding:0;}
 input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=button]):not([type=image]):not([type=hidden]),
 select, textarea, .field {
+  box-sizing:border-box;
   font-size:.84em;
   padding:.5em;
   border:1px solid rgba(0,0,0,.4);
@@ -76,6 +77,22 @@ body {padding-top:40px;}
 .workspace {display:table; box-sizing:border-box; width:100%; border-spacing:.5em;}
 .sandbox, .experiments {display:table-cell; box-sizing:border-box; padding:1em; width:50%; background:rgba(0,0,0,.05); border:1px solid rgba(0,0,0,.1); border-radius:.3em; vertical-align:top;}
 .sandbox > *, .experiments > * {display:block; box-sizing:border-box; width:100%; margin:.5em 0;}
+.experiments > table {display:table}
+.experiments > table th {
+  text-align:left;
+  font-weight:normal;
+  max-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:.9em;
+  color:#09f;
+}
+.experiments > table td {width:50%;}
+.experiments > table td > input:not([type=checkbox]):not([type=radio]) {width:100%}
+@media (max-width:1024px) {
+  .experiments > table td, .experiments > table th {display:block; width:100%; max-width:none; overflow:visible; text-overflow:ellipsis;}
+  .experiments > table th {margin-top:.5em;}
+}
 .sandbox > :first-child, .experiments > :first-child {margin-top:0;}
 .sandbox > :last-child, .experiments > :last-child {margin-bottom:0;}
 .checkbox-group > label, .radio-group > label {white-space:nowrap; padding:.2em .4em; cursor:pointer; border:1px solid transparent; border-radius:.2em; transition:all .2s;}
