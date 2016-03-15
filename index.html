@@ -12,11 +12,79 @@
   <meta name="description" content="Reaction for the any changes of the document." />
   <meta name="keywords" content="reaction, bind, DOM, node, mutation, handle, native, js, javascript, library" />
   <link rel="stylesheet" type="text/css" href="assets/style.css" />
+  <script type="text/javascript" src="//rawgit.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
   <script type="text/javascript" src="reaction.js"></script>
   <script type="text/javascript"></script>
 </head>
 <body>
-  <h1>ReactionJS</h1>
-  <p>Reaction for the any changes of the document.</p>
+  <h1 class="head">ReactionJS</h1>
+  <small class="summary">Reaction for the any changes of the form elements</small>
+  <div class="workspace">
+     <div class="sandbox">
+
+      <h3>Single value</h3>
+
+      <input type="range" title="-100 ... 100" min="-100" max="100" />
+      <progress title="-100 ... 100" min="-100" max="100"></progress>
+      <input type="number" placeholder="[type=number]" min="-100" max="100" />
+      <input type="text" placeholder="[type=text]" />
+      <span class="field" contenteditable="true" placeholder="[contenteditable=true]"></span>
+
+      <div class="checkbox-group">
+        <label title="[type=checkbox]"><input type="checkbox" value="-100" /> -100</label>
+        <label title="[type=checkbox]"><input type="checkbox" value="-50" /> -50</label>
+        <label title="[type=checkbox]"><input type="checkbox" value="0" /> 0</label>
+        <label title="[type=checkbox]"><input type="checkbox" value="50" /> 50</label>
+        <label title="[type=checkbox]"><input type="checkbox" value="100" /> 100</label>
+      </div>
+ 
+      <div class="radio-group">
+        <label title="[type=radio]"><input type="radio" name="radio-1" value="-100" /> -100</label>
+        <label title="[type=radio]"><input type="radio" name="radio-1" value="-50" /> -50</label>
+        <label title="[type=radio]"><input type="radio" name="radio-1" value="0" /> 0</label>
+        <label title="[type=radio]"><input type="radio" name="radio-1" value="50" /> 50</label>
+        <label title="[type=radio]"><input type="radio" name="radio-1" value="100" /> 100</label>
+      </div>
+
+      <select title="select">
+        <option value="">Please select</option>
+        <option value="-100">-100</option>
+        <option value="-50">-50</option>
+        <option value="0">0</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+
+      <textarea placeholder="textarea"></textarea>
+      <input type="file" title="[type=file]" />
+
+      <h3>Multiple value</h3>
+
+      <select multiple size="5" title="select[multiple]">
+        <option value="-100">-100</option>
+        <option value="-50">-50</option>
+        <option value="0">0</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+
+      <div class="checkbox-group">
+        <label title="[type=checkbox]"><input type="checkbox" name="multiple[checkbox][]" value="-100" /> -100</label>
+        <label title="[type=checkbox]"><input type="checkbox" name="multiple[checkbox][]" value="-50" /> -50</label>
+        <label title="[type=checkbox]"><input type="checkbox" name="multiple[checkbox][]" value="0" /> 0</label>
+        <label title="[type=checkbox]"><input type="checkbox" name="multiple[checkbox][]" value="50" /> 50</label>
+        <label title="[type=checkbox]"><input type="checkbox" name="multiple[checkbox][]" value="100" /> 100</label>
+      </div>
+
+      <input type="file" title="[type=file]" name="multiple[file][]" />
+      <input type="file" title="[type=file]" name="multiple[file][]" />
+      <input type="file" title="[type=file]" name="multiple[file][]" />
+
+    </div>
+    <div class="experiments">
+      <h3>Single value</h3>
+      <p></p>
+    </div>
+  </div>
 </body>
 </html>
